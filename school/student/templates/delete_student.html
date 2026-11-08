@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="{% static 'adminlte/css/adminlte.min.css' %}">
+</head>
+<body class="bg-body-tertiary">
+<main class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card border-danger shadow-sm">
+                <div class="card-header bg-danger text-white"><h1 class="h4 mb-0">Delete Student</h1></div>
+                <div class="card-body">
+                    <p>Are you sure you want to delete <strong>{{ student.name }}</strong>?</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                        <a href="{% url 'student_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
